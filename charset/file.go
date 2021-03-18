@@ -35,6 +35,11 @@ func readFile(name string) (data []byte, err error) {
 		if err != nil {
 			return
 		}
+		configPath := filepath.FromSlash("vendor/github.com/rogpeppe/go-charset/datafiles/" + name)
+		r,err = os.Open(configPath)
+		if err != nil {
+			return
+		}
 	}
 	return ioutil.ReadAll(r)
 }
